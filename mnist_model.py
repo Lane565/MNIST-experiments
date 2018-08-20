@@ -93,7 +93,7 @@ class Model:
                                                                                self.labels: test_labels,
                                                                                self.keep_prob: 1.0})
 
-        confusion_matrix = tf.confusion_matrix(tf.argmax(predictions, axis=1),
-                                               tf.argmax(test_labels, axis=1)).eval(session=sess)
+        confusion_matrix = tf.confusion_matrix(tf.argmax(test_labels, axis=1),
+                                               tf.argmax(predictions, axis=1)).eval(session=sess)
 
         return loss, accuracy, confusion_matrix
